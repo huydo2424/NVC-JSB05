@@ -1,88 +1,159 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-* {
-  margin: 0;
-  box-sizing: border-box;
-}
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
 
-body {
-  font-family: "Lucida Sans", sans-serif;
-}
+      body {
+        font-family: "Lucida Sans", sans-serif;
+      }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 10px;
-  background-color: white;
-  padding: 10px;
-}
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 10px;
+        background-color: white;
+        padding: 10px;
+      }
 
-.grid-container > div {
-  padding: 10px;
-  font-size: 16px;
-}
+      .grid-container > div {
+        padding: 10px;
+        font-size: 16px;
+      }
 
-.col-1 { grid-column: span 1; }
-.col-2 { grid-column: span 2; }
-.col-3 { grid-column: span 3; }
-.col-4 { grid-column: span 4; }
-.col-5 { grid-column: span 5; }
-.col-6 { grid-column: span 6; }
-.col-7 { grid-column: span 7; }
-.col-8 { grid-column: span 8; }
-.col-9 { grid-column: span 9; }
-.col-10 { grid-column: span 10; }
-.col-11 { grid-column: span 11; }
-.col-12 { grid-column: span 12; }
+      .col-1 {
+        grid-column: span 1;
+      }
+      .col-2 {
+        grid-column: span 2;
+      }
+      .col-3 {
+        grid-column: span 3;
+      }
+      .col-4 {
+        grid-column: span 4;
+      }
+      .col-5 {
+        grid-column: span 5;
+      }
+      .col-6 {
+        grid-column: span 6;
+      }
+      .col-7 {
+        grid-column: span 7;
+      }
+      .col-8 {
+        grid-column: span 8;
+      }
+      .col-9 {
+        grid-column: span 9;
+      }
+      .col-10 {
+        grid-column: span 10;
+      }
+      .col-11 {
+        grid-column: span 11;
+      }
+      .col-12 {
+        grid-column: span 12;
+      }
 
-.bg-purple { background-color: purple; text-align: center; color: #ffffff; }
-.bg-blue { background-color: #33b5e5; color: #ffffff; }
-.bg-lightblue { background-color: #0099cc; color: #ffffff; text-align: center; }
-.border-blue { border: 2px solid #0099cc; background-color: white; padding: 15px; color: #000000; }
+      .main_header {
+        background-color: chocolate;
+        text-align: center;
+        color: #ffffff;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      }
+      .menu_doc {
+        background-color: #33b5e5;
+        color: #ffffff;
+      }
+      .footer {
+        background-color: lightpink;
+        color: black;
+        text-align: center;
+      }
+      .banner {
+        border: 2px solid #0099cc;
+        background-color: white;
+        padding: 15px;
+        color: #000000;
+      }
 
-h1 { font-size: 40px; }
-h2 { font-size: 20px; padding-bottom: 10px; }
-p { margin-bottom: 7px; }
+      h1 {
+        font-size: 40px;
+      }
+      h2 {
+        font-size: 20px;
+        padding-bottom: 10px;
+      }
+      p {
+        margin-bottom: 7px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      }
 
-ul { list-style-type: none; margin: 0; padding: 0; }
-li { padding: 8px; margin-bottom: 7px; }
-.bg-blue li:hover { background-color: #0099cc; }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        padding: 8px;
+        margin-bottom: 7px;
+      }
+      .menu_doc li:hover {
+        background-color: #0099cc;
+      }
 
-@media only screen and (max-width: 768px) {
-  .col-3, .col-7, .col-2 { grid-column: span 12; }
-}
-</style>
-</head>
-<body>
+      @media only screen and (max-width: 768px) {
+        .col-3,
+        .col-7,
+        .col-2 {
+          grid-column: span 12;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="col-12 main_header"><h1>TRANG WEB RESPONSIVE - BUỔI 6</h1></div>
+      <div class="col-3 menu_doc">
+        <ul>
+          <li>Menu 1</li>
+          <li>Menu 2</li>
+          <li>Menu 3</li>
+          <li>Menu 4</li>
+        </ul>
+      </div>
+      <div class="col-7">
+        <h1>Responsive</h1>
+        <p>
+            Responsive là một tính từ để chỉ một website có thể hiển thị tương thích trên mọi kích thước hiển thị của trình duyệt.
+        </p>
+        <p>
+            Responsive được hiểu là một công nghệ hỗ trợ thiết kế website có khả năng tự điều chỉnh trang web tương thích với các loại kích thước màn hình khác nhau như: Desktop, Tablet, Mobile... 
 
-<div class="grid-container">
-  <div class="col-12 bg-purple"><h1>Chania</h1></div>
-  <div class="col-3 bg-blue">
-    <ul>
-      <li>The Flight</li>
-      <li>The City</li>
-      <li>The Island</li>
-      <li>The Food</li>
-    </ul>
-  </div>
-  <div class="col-7">
-    <h1>The City</h1>
-    <p>Chania is the capital of the Chania region on the island of Crete.</p>
-    <p>The city can be divided in two parts, the old town and the modern city. The old town is situated next to the old harbour and is the matrix around which the whole urban area was developed.</p>
-    <p>Chania lies along the north west coast of the island Crete.</p>
-  </div>
-  <div class="col-2 border-blue">
-    <h2>Facts:</h2>
-    <ul>
-      <li>Chania is a city on the island of Crete</li>
-      <li>Crete is a Greek island in the Mediterranean Sea</li>
-    </ul>
-  </div>
-  <div class="col-12 bg-lightblue"><p>Resize the browser window to see how the content responds to the resizing.</p></div>
-</div>
-
-</body>
+            
+        </p>
+        <p>Responsive đóng một vai trò quan trọng trong quá trình xây dựng trang web, giúp tối ưu hóa trải nghiệm người dùng bằng cách đảm bảo rằng trang web luôn hiển thị đúng với kích thước của các loại màn hình thiết bị khác nhau và thân thiện trên mọi nền tảng.</p>
+        <p>Ví dụ: Khi bạn truy cập một website responsive trên điện thoại di động, website sẽ tự động thu nhỏ bố cục và sắp xếp lại các nội dung phù hợp để hiển thị tốt nhất trên màn hình của thiết bị di động đó. Từ đấy, bạn có thể dễ dàng đọc và thao tác trên website một cách dễ dàng và linh hoạt</p>
+      </div>
+      <div class="col-2 banner">
+        <h2>Tìm hiểu thêm</h2>
+        <ul>
+          <li>Các bạn có thể lên trang W3school để tìm hiểu thêm về lập trình web</li>
+          <li>Chú ý luyện tập để ghi nhớ</li>
+        </ul>
+      </div>
+      <div class="col-12 footer">
+        <p>
+          Đây là phần Footer của trang web
+        </p>
+      </div>
+    </div>
+  </body>
 </html>
