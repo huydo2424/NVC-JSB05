@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Lucida Sans", sans-serif;
+        }
+
+        .grid-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            background-color: white;
+            padding: 10px;
+        }
+
+        [class^="col-"] {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .col-1 { width: 8.33%; }
+        .col-2 { width: 16.67%; }
+        .col-3 { width: 25%; }
+        .col-4 { width: 33.33%; }
+        .col-5 { width: 41.67%; }
+        .col-6 { width: 50%; }
+        .col-7 { width: 58.33%; }
+        .col-8 { width: 66.67%; }
+        .col-9 { width: 75%; }
+        .col-10 { width: 83.33%; }
+        .col-11 { width: 91.67%; }
+        .col-12 { width: 100%; }
+
+        .main_header {
+            background-color: chocolate;
+            text-align: center;
+            color: #ffffff;
+            font-family: system-ui, sans-serif;
+        }
+
+        .menu_doc {
+            background-color: #33b5e5;
+            color: #ffffff;
+        }
+
+        .footer {
+            background-color: lightpink;
+            color: black;
+            text-align: center;
+        }
+
+        .banner {
+            border: 2px solid #0099cc;
+            background-color: white;
+            padding: 15px;
+            color: #000000;
+        }
+
+        h1 { font-size: 40px; }
+        h2 { font-size: 20px; padding-bottom: 10px; }
+        p { margin-bottom: 7px; font-family: system-ui, sans-serif; }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            padding: 8px;
+            margin-bottom: 7px;
+        }
+
+        .menu_doc li:hover {
+            background-color: #0099cc;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .col-4, .col-6 { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="col-6 main_header">
+            <h1>TRANG WEB RESPONSIVE - BUỔI 6</h1>
+        </div>
+        <div class="col-6">
+            <div class="col-6">
+                <h1>Đây là tiêu đề bên phải - nó rất dài</h1>
+            </div>
+        </div>
+        <div class="col-4 menu_doc">
+            <ul>
+                <li>Menu 1</li>
+                <li>Menu 2</li>
+                <li>Menu 3</li>
+                <li>Menu 4</li>
+            </ul>
+        </div>
+        <div class="col-4">
+            <h1>Responsive</h1>
+            <p>Responsive là một tính từ để chỉ một website có thể hiển thị tương thích trên mọi kích thước hiển thị của trình duyệt.</p>
+            <p>Responsive được hiểu là một công nghệ hỗ trợ thiết kế website có khả năng tự điều chỉnh trang web tương thích với các loại kích thước màn hình khác nhau như: Desktop, Tablet, Mobile...</p>
+            <p>Responsive đóng một vai trò quan trọng trong quá trình xây dựng trang web, giúp tối ưu hóa trải nghiệm người dùng.</p>
+            <p>Ví dụ: Khi bạn truy cập một website responsive trên điện thoại di động, website sẽ tự động thu nhỏ bố cục để hiển thị tốt nhất.</p>
+        </div>
+        <div class="col-4 banner">
+            <h2>Tìm hiểu thêm</h2>
+            <ul>
+                <li>Các bạn có thể lên trang W3School để tìm hiểu thêm về lập trình web</li>
+                <li>Chú ý luyện tập để ghi nhớ</li>
+            </ul>
+        </div>
+        <div class="col-12 footer">
+            <p>Đây là phần Footer của trang web</p>
+        </div>
+    </div>
+</body>
+</html>
