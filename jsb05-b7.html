@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Học lập trình</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      /* General Styles */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      /* Navbar */
+      .navbar {
+        background: #f44336; /* Màu đỏ chuẩn theo mẫu */
+        padding: 10px 20px;
+        display: flex;
+        justify-content: flex-start; /* Căn menu về bên trái */
+        align-items: center;
+        box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .navbar a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 15px;
+        font-size: 18px;
+        transition: 0.3s;
+      }
+
+      .navbar a:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      /* Điểm nhấn cho nút Home */
+      .navbar a.home {
+        background: white;
+        color: black;
+        font-weight: bold;
+        border-radius: 5px;
+      }
+
+      /* Header */
+      .header {
+        background: url("banner.jpg") no-repeat center center;
+        background-size: cover;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        padding: 20px;
+      }
+
+      .header h1 {
+        font-size: 50px;
+      }
+
+      .header p {
+        font-size: 22px;
+      }
+
+      .header button {
+        background: black;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        font-size: 18px;
+        margin-top: 20px;
+      }
+
+      /* Grid System */
+      .container {
+        width: 90%;
+        margin: auto;
+        overflow: hidden;
+        padding: 50px 0;
+      }
+
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -10px;
+      }
+
+      .col-1 {
+        width: 8.33%;
+      }
+      .col-2 {
+        width: 16.66%;
+      }
+      .col-3 {
+        width: 25%;
+      }
+      .col-4 {
+        width: 33.33%;
+      }
+      .col-5 {
+        width: 41.66%;
+      }
+      .col-6 {
+        width: 50%;
+      }
+      .col-7 {
+        width: 58.33%;
+      }
+      .col-8 {
+        width: 66.66%;
+      }
+      .col-9 {
+        width: 75%;
+      }
+      .col-10 {
+        width: 83.33%;
+      }
+      .col-11 {
+        width: 91.66%;
+      }
+      .col-12 {
+        width: 100%;
+      }
+
+      [class*="col-"] {
+        padding: 10px;
+      }
+
+      /* Responsive */
+      @media screen and (max-width: 768px) {
+        [class*="col-"] {
+          width: 100%;
+        }
+      }
+
+      /* Section Styling */
+      .section {
+        padding: 50px 0;
+      }
+
+      .section-light {
+        background: #f9f9f9;
+      }
+
+      .section-dark {
+        background: #ddd;
+      }
+
+      /* Icons */
+      .icon {
+        font-size: 80px;
+        text-align: center;
+        color: #f44336;
+      }
+      p {
+        font-size: 24px; /* Kích thước chữ dễ đọc */
+        line-height: 1.8; /* Tăng khoảng cách dòng để dễ theo dõi */
+        text-align: justify; /* Căn chỉnh đều hai bên */
+        color: #333; /* Màu chữ nhẹ nhàng, không quá chói */
+        font-family: "Merriweather", serif; /* Phông chữ đọc tốt cho báo */
+        margin-bottom: 16px; /* Khoảng cách giữa các đoạn */
+        }
+      /* Footer */
+      .footer {
+        background: black;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <a href="#" class="home">Trang chủ</a>
+      <a href="#">HTML</a>
+      <a href="#">CSS</a>
+      <a href="#">Java Script</a>
+      <a href="#">Các lưu ý</a>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+      <h1>LẬP TRÌNH</h1>
+      <h4>Các kiến thức cốt lõi</p>
+      <button>Bắt đầu bài học</button>
+    </div>
+
+    <!-- First Section -->
+    <div class="container section">
+      <div class="row">
+        <div class="col-4 icon">
+            <i class="fa fa-laptop"></i>
+          </div>
+        <div class="col-8">
+          <h2>Lập trình web là gì?</h2>
+          <p>
+            Lập trình web là công việc của một Web Developer - Lập trình viên
+            web. Lập trình web bao gồm việc nhận dữ liệu và yêu cầu từ bộ phận
+            thiết kế, sau đó sử dụng ngôn ngữ lập trình để tạo ra một hệ thống
+            website hoàn chỉnh có cơ sở dữ liệu, có tương tác với người dùng.
+          </p>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- Second Section -->
+    <div class="container section-light">
+      <div class="row">
+        <div class="col-4 icon">
+          <i class="fa fa-book"></i>
+        </div>
+        <div class="col-8">
+          <h2>Cách duy trì đam mê</h2>
+          <p>
+            Xác định một mục đích rõ ràng và thực tế mà bạn có thể làm được,
+            phải chắc rằng đó thực sự là mục-đích-của-bạn chứ không phải là mục
+            đích của bố mẹ, người xung quanh hay của số đông. Có thái độ và suy
+            nghĩ tích cực để theo đuổi mục tiêu mà mình đề ra trong việc học,
+            cũng như khi thực hiện kế hoạch.
+          </p>
+
+          <p>
+            Lên danh sách những yếu tố thúc đẩy bạn học hành: khách quan (nhận
+            được lời khen của bố mẹ, quà thưởng, học bổng…), chủ quan (đạt được
+            trình độ cao cấp trong lĩnh vực mình đang học, thoả mãn sự ham mê
+            tìm hiểu của bản thân...).
+          </p>
+
+          <p>
+            Tạo một áp lực thời gian cho bản thân khi làm bài tập, nếu không có
+            áp lực về thời gian, bạn sẽ dễ lãng quên nhiệm vụ chính của mình và
+            dần dần mất hứng thú khi bắt tay vào làm. Tốt hơn cả, bạn hãy dán
+            một tờ stick note (tờ giấy dán, thường để ghi chú lên đó) ghi thời
+            hạn chót nộp bài lên lịch, sau đó đánh dấu ngày bạn sẽ bắt đầu tiến
+            hành làm bài cũng trên tờ lịch đó.
+          </p>
+
+          <p>
+            Nếu bạn thấy bài tập quá nhiều và nặng, hãy chia nhỏ ra làm nhiều
+            phần. Mỗi ngày làm một chút, nhưng phải chắc chắn là mình làm xong
+            chứ không để dồn sang hôm sau.
+          </p>
+
+          <p>
+            Nếu bạn muốn hoàn thành sớm bài tập thì hãy chọn phần dễ trước, khó
+            sau, chọn làm những phần nào bạn cảm thấy hứng thú hoặc những đề mục
+            nhỏ trước. Việc hoàn thành một cách nhanh chóng những phần như thế
+            sẽ khiến bạn tự tin hơn về khả năng của mình.
+          </p>
+
+          <p>
+            Nếu cảm thấy khó khăn hoặc khó hiểu ở điểm nào trong bài tập, đừng
+            ngại hỏi giáo viên hoặc người hướng dẫn. Sự giảng giải ngắn gọn của
+            họ sẽ giúp bài tập trở nên dễ hiểu hơn, do đó bạn có thể tiếp tục
+            phát triển bài làm nếu đi đúng hướng, cũng như hạn chế được những
+            sai sót trong quá trình thực hiện.
+          </p>
+
+          <p>
+            Tìm mối liên hệ giữa những gì bạn đang học/đang làm với những gì bạn
+            sẽ thực hiện trong tương lai.
+          </p>
+
+          <p>
+            Cố gắng giải quyết những vấn đề cá nhân có thể làm ảnh hưởng đến sự
+            tập trung của bạn, nếu không, hãy điều tiết sao cho nó không can
+            thiệp sâu vào việc học.
+          </p>
+
+          <p>
+            Hạn chế những suy nghĩ hoặc thái độ thiếu tích cực như: chần chừ,
+            chờ đợi may mắn mỉm cười, tự ti… khi học. Hãy nhìn vào những thành
+            công hoặc kết quả mà bạn đạt được, tuy nhỏ thôi, nhưng nó có thể
+            thay đổi thái độ của bạn đấy.
+          </p>
+
+          <p>
+            Mỗi khi hoàn thành xong một phần bài tập đề ra, bạn hãy tự thưởng
+            cho mình nhé. Một que kem, thanh kẹo, một giờ nghe nhạc hoặc xem
+            phim… vừa khiến đầu óc bạn thoải mái hơn, vừa duy trì được sự nhiệt
+            tình trong bạn. Đừng nghĩ đến những gì chưa hoàn thành, hãy hài lòng
+            với những gì mình đã hoàn thành bạn nhé!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>Powered by Custom CSS</p>
+    </div>
+  </body>
+</html>
