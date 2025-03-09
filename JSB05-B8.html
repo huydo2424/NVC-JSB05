@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 8 - Tạo form</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        form {
+            background-color: chocolate;
+            width: max-content;
+            margin: auto;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Các phương thức Post và Get trong form</h1>
+    <h2>Phương thức Get</h2>
+    <!-- thẻ form gồm có thuộc tính action để dẫn đến trang web hoặc chương trình gì đó, thuộc tính method để quy định kiểu dữ liệu form -->
+    <form action="" method="post">
+        <h3>Nhập giá trị</h3>
+        <table>
+            <tr>
+                <td><label for="fname">Tên</label></td> 
+                <!-- for: dùng để đánh dấu sự liên kết giữa thẻ tên và thẻ nhập, ví dụ: lable for="name" sẽ đi cùng input id="name" -->
+                <td><input type="text" id="fname" name="fname" required=""></td>
+                <!-- type quy định kiểu của input, có thể là mật khẩu, chữ, v.v -->
+                 <!-- để thêm sự kiểm tra cho thẻ nhập, ta thêm required vào thẻ đó -->
+            </tr>
+            <tr>
+                <td><label for="lname">Họ</label> </td>
+                <td><input type="password" id="lname" name="lname" required></td>
+            </tr>
+            <tr><input type="date"></tr>
+        </table>
+        <h3><input type="submit" value="Gửi giá trị"></h3>
+        <!-- submit là nút gửi, sẽ gom toàn bộ thông tin trong form tương ứng để gửi đi -->
+    </form>
+    <!-- Thực hành: tạo thêm 1 form khác với method post, gồm các thông tin theo form đăng nhập: tên đăng nhập, email, mật khẩu, thêm trường nhập file (type = file). Nêu ra sự khác biệt giữa post và get -->
+</body>
+</html>
