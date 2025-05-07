@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>KING OUTFIT</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    /* Thanh top-bar cố định */
+    .top-bar {
+      background-color: #ff8080;
+      color: white;
+      padding: 15px 20px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .top-bar img.logo {
+      height: 40px;
+    }
+
+    .shop-name {
+      font-size: 1.8em;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .content {
+      margin-top: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h2 {
+      margin: 40px 0 20px 0;
+      color: #333;
+      font-size: 1.6em;
+      width: 100%;
+      text-align: center;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 0 40px 40px;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .product {
+      background-color: rgb(255, 255, 255);
+      padding: 12px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .product:hover {
+      transform: scale(1.03);
+    }
+
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .product-name {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #222;
+      text-align: center;
+    }
+
+    .product-price {
+      color: #e91e63;
+      font-size: 1.1em;
+      margin-top: 5px;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px 40px;
+      }
+
+      h2 {
+        margin-left: 0;
+        font-size: 1.4em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .shop-name {
+        font-size: 1.4em;
+      }
+
+      .top-bar {
+        flex-direction: column;
+        gap: 5px;
+        padding: 10px;
+      }
+
+      .top-bar img.logo {
+        height: 30px;
+      }
+    }
+
+    .detail-button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #ff8080;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      width: 100%;
+      max-width: 150px;
+    }
+
+    .detail-button:hover {
+      background-color: #e76666;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      position: relative;
+    }
+
+    #close-modal {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #555;
+    }
+
+    #modal-img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: contain;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    #modal-price {
+      color: #e91e63;
+      font-size: 1.3em;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .modal-actions button {
+      padding: 10px 20px;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .buy-button {
+      background-color: #28a745;
+    }
+
+    .add-to-cart-button {
+      background-color: #007bff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top-bar">
+    <img alt="Logo" class="logo" src="https://shorturl.at/TFndF" />
+    <div class="shop-name">KING CLOTHNGS</div>
+  </div>
+  <div class="content">
+    <h2>Sản phẩm nổi bật</h2>
+    <div class="product-grid">
+      <div class="product"><img alt="sp" src="https://shorturl.at/l4j7l" />
+        <div class="product-name">QUẦn SHORT THỂ THAO NAM</div>
+        <div class="product-price">199.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="sp"
+          src="https://bizweb.dktcdn.net/100/106/923/products/4-f539599a-73a5-4e5a-863a-2dc6c76266e3.jpg?v=1689873833110" />
+        <div class="product-name">ÁO MONCLER MAYA PUFFER JACKET</div>
+        <div class="product-price">3.999.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="sp" src="https://shorturl.at/VpCTt" />
+        <div class="product-name">Áo Nam Polo Ralph Lauren</div>
+        <div class="product-price">599.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="sp" src="https://shorturl.at/HaZmK" />
+        <div class="product-name">Áo khoác bomber Late Odin Club</div>
+        <div class="product-price">330.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="sp" src="https://shorturl.at/zz2Tp" />
+        <div class="product-name">Giày sneaker vải canvas</div>
+        <div class="product-price">699.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="sp"
+          src="https://product.hstatic.net/1000367250/product/-next-nature-womens-shoes-zkmmbg__11__3cfb022ca8a24d6aac673844f6173ca7_ee0c3295bb72495db5ff62eecf009995_master.png" />
+        <div class="product-name">Giày thời trang Nữ Nike COURT VISION</div>
+        <div class="product-price">1.150.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="sp"
+          src="https://authentic-shoes.com/wp-content/uploads/2023/04/bape-front-facing-shark-ma1-bomber-flight-jacket-olive_509703e4aa2346b39b630b9785845d60.png" />
+        <div class="product-name">Áo Bape Front Facing Shark MA1</div>
+        <div class="product-price">2.480.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <!-- Thêm 2 sản phẩm nổi bật mới -->
+      <div class="product"><img alt="sp"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-KWSWvPT8WcWVjx8Dmqviru6IhoyKF_xSKA&s" />
+        <div class="product-name">Áo Hoodie Champion Reverse Weave</div>
+        <div class="product-price">850.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="sp"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRur3Tj24ilFj41AAm3oBOcLvSeAZH6OXlk3A&s" />
+        <div class="product-name">Quần Jeans Levi's 501 Original</div>
+        <div class="product-price">1.200.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+    </div>
+
+    <h2>Áo</h2>
+    <div class="product-grid">
+      <div class="product"><img alt="áo"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6lo3jwd4lFT2SUB-BTJgGcVxn3Ij0WMimqg&s" />
+        <div class="product-name">Áo Thun Regular 360GSM</div>
+        <div class="product-price">120.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="áo"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbqjEaG7spbbTNA3BH8uezs37WPEaoPk3p4g&amp;s" />
+        <div class="product-name">Áo Essential Tee Season</div>
+        <div class="product-price">900.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="áo"
+          src="https://bizweb.dktcdn.net/100/415/697/products/mc1-0224920e-c953-4129-a4b3-d79b600e15fa.jpg?v=1637916532137" />
+        <div class="product-name">Áo Thun Teelab Local Brand Unisex Grey Trame </div>
+        <div class="product-price">190.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="áo" src="https://shorturl.at/Pqu95" />
+        <div class="product-name">Áo Dài Tay Adidas Future Icons</div>
+        <div class="product-price">1.150.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="áo" src="https://shorturl.at/s4Z8o" />
+        <div class="product-name">Áo Running Nike</div>
+        <div class="product-price">650.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="áo" src="https://shorturl.at/qYRFD" />
+        <div class="product-name">Áo Dài Tay Nữ Adidas</div>
+        <div class="product-price">170.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="áo"
+          src="https://authentic-shoes.com/wp-content/uploads/2023/04/605875d6607e2_67d5af6fac29475c80bcc24421f9bd68.png" />
+        <div class="product-name">Áo Bape Space Camo Shark Tee White</div>
+        <div class="product-price">580.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="áo"
+          src="https://bizweb.dktcdn.net/100/479/837/products/ao-thun-mlb-logo-t-shirts-la-dodgers-3atsm1133-07cbl-jpg-1678265959-08032023155919-1680580974647.jpg?v=1688704193757" />
+        <div class="product-name">Áo Phông MLB Logo Chữ LA MAU XANH</div>
+        <div class="product-price">490.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="áo"
+          src="https://product.hstatic.net/200000100181/product/atst068-8m-2_d9baaf3c87fc4a05a40d69c92a11d33b_84f5b9de3e23435cbb4aa45758198e5b.jpg" />
+        <div class="product-name">Áo không cổ nữ Li-Ning</div>
+        <div class="product-price">700.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+    </div>
+
+    <h2>Quần</h2>
+    <div class="product-grid">
+      <div class="product"><img alt="quần"
+          src="https://bizweb.dktcdn.net/thumb/1024x1024/100/413/335/products/575549xjbak-duyet-fashion-1.jpg?v=1611072139043" />
+        <div class="product-name">Quần Gucci Oversized 'Iconic'</div>
+        <div class="product-price">1.150.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="quần"
+          src="https://cdn.vuahanghieu.com/unsafe/0x900/left/top/smart/filters:quality(90)/https://admin.vuahanghieu.com/upload/product/2023/06/quan-dai-nam-gucci-gg-cotton-60s-trousers-with-web-mau-kaki-6490146584898-19062023154005.jpg" />
+        <div class="product-name">Gucci Quần dài-mau nau</div>
+        <div class="product-price">660.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="quần"
+          src="https://i5.walmartimages.com/seo/Nike-Club-Fleece-Sportswear-Men-s-Jogger-Pants-Black-White-804408-010_a9dd6af4-d10e-49ea-abe6-00d6da1c2cbe_1.84859dcdb90c44aa3abe9636f04e9644.jpeg" />
+        <div class="product-name">Quần Jogger Nike Sportswear Club Fleece</div>
+        <div class="product-price">550.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="quần"
+          src="https://linhvnxk.com/wp-content/uploads/2018/09/quan-kaki-uniqlo-slimfit-mau-be-dam.jpg" />
+        <div class="product-name">Quần Kaki Uniqlo Slim Fit</div>
+        <div class="product-price">450.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="quần"
+          src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/e01315b1dc63497a9927af0900ebafc6_9366/Quan_Short_3_Soc_Vai_Thun_Da_Ca_Essentials_DJen_IC9435_01_laydown.jpg " />
+        <div class="product-name">Quần Short Adidas 3-Stripes</div>
+        <div class="product-price">320.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="quần" src="https://mcdn.coolmate.me/image/November2024/quan-nam-chat-luong.jpg" />
+        <div class="product-name">Quần Tây Nam Coolmate</div>
+        <div class="product-price">490.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <!-- Thêm 3 sản phẩm quần mới -->
+      <div class="product"><img alt="quần"
+          src="https://i.vietgiaitri.com/2015/10/19/quan-jean-nam-phoi-rach-bui-bam-8d8b60.jpg" />
+        <div class="product-name">Quần Jean Nam Bụi Bặm</div>
+        <div class="product-price">380.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="quần"
+          src="https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-liufgz1k0us224" />
+        <div class="product-name">Quần Lửng Thể Thao Puma</div>
+        <div class="product-price">290.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="quần"
+          src="https://s3.ap-southeast-1.amazonaws.com/thegmen.vn/2023/4/1682736192468mdc955.jpg" />
+        <div class="product-name">Quần Dài Vải Linen</div>
+        <div class="product-price">420.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+    </div>
+
+    <h2>Giày</h2>
+    <div class="product-grid">
+      <div class="product"><img alt="giày"
+          src="https://product.hstatic.net/200000563747/product/upload_7bcd89787e3c40bb8387f17b27464503.jpg" />
+        <div class="product-name">Giày Adidas Ultraboost 21</div>
+        <div class="product-price">4.200.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="giày"
+          src="https://sneakerholicvietnam.vn/wp-content/uploads/2021/07/nike-air-force-1-low-white-315115-112.jpg" />
+        <div class="product-name">Giày Nike Air Force 1</div>
+        <div class="product-price">1.500.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="giày"
+          src="https://product.hstatic.net/1000387035/product/79_769b7f14db714dd9ab7112aae372fd0d_master.png" />
+        <div class="product-name">Giày Converse Chuck Taylor</div>
+        <div class="product-price">900.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="giày"
+          src="https://bizweb.dktcdn.net/100/140/774/files/giay-vans-skate-old-skool-black-white-vn0a5fcby28-3.jpg?v=1691834913583" />
+        <div class="product-name">Giày Vans Old Skool</div>
+        <div class="product-price">1.350.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="giày"
+          src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_500,h_500/global/393772/09/sv01/fnd/VNM/fmt/png/Gi%C3%A0y-th%E1%BB%83-thao-n%E1%BB%AF-RS-X-Soft" />
+        <div class="product-name">Giày Puma RS-X</div>
+        <div class="product-price">800.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="giày"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvxjdzUYDuibf-EkIn4iS-9PaQdV75JibCHg&s" />
+        <div class="product-name">Giày New Balance 574</div>
+        <div class="product-price">1.600.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <!-- Thêm 3 sản phẩm giày mới -->
+      <div class="product"><img alt="giày"
+          src="https://product.hstatic.net/1000410088/product/upload_91265afd9def4f3ba3dfc701fec0a7f8_grande.jpg" />
+        <div class="product-name">Giày Bitis Hunter X</div>
+        <div class="product-price">800.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="giày"
+          src="https://image.hsv-tech.io/987x0/reebok/common/21773a4a-ebef-4346-aaba-47e1e04cd91f.webp" />
+        <div class="product-name">Giày Reebok Classic Leather</div>
+        <div class="product-price">450.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+      <div class="product"><img alt="giày"
+          src="https://supersports.com.vn/cdn/shop/files/1FM00864F-920-4.jpg?v=1734506353&width=2000" />
+        <div class="product-name">Giày Fila Disruptor 2</div>
+        <div class="product-price">300.000đ</div><button class="detail-button">Chi tiết</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="product-modal">
+    <div class="modal-content">
+      <span id="close-modal">×</span>
+      <img alt="Product Image" id="modal-img" src="" />
+      <h3 id="modal-name"></h3>
+      <div id="modal-price"></div>
+      <div class="modal-actions">
+        <button class="buy-button">Mua</button>
+        <button class="add-to-cart-button">Thêm vào giỏ hàng</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.detail-button').forEach(button => {
+      button.addEventListener('click', () => {
+        const product = button.closest('.product');
+        const img = product.querySelector('img').src;
+        const name = product.querySelector('.product-name').innerText;
+        const price = product.querySelector('.product-price').innerText;
+
+        document.getElementById('modal-img').src = img;
+        document.getElementById('modal-name').innerText = name;
+        document.getElementById('modal-price').innerText = price;
+        document.getElementById('product-modal').style.display = 'flex';
+      });
+    });
+
+    document.getElementById('close-modal').addEventListener('click', () => {
+      document.getElementById('product-modal').style.display = 'none';
+    });
+  </script>
+</body>
+
+</html>
